@@ -1,0 +1,15 @@
+@import "mixins";
+@import "fonts";
+@import "vendor";
+@import "vars";
+@import "settings";
+
+body {
+  color: #fff;
+  background-image: url("../img/2.jpg");
+  background-color: #f00;
+}
+
+p {
+  transform: scale(0, 1);
+}
