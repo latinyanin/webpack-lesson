@@ -1,4 +1,5 @@
 /* ----------------- basic vars -----------------*/
+'use strict';
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -45,7 +46,10 @@ const plugins = () => {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: path.resolve(__dirname, 'src/assets'), to: path.resolve(__dirname, 'app') }
+        {
+          from: path.resolve(__dirname, 'src/assets'), to: path.resolve(__dirname, 'app'),
+          noErrorOnMissing: true,
+        }
       ]
     }),
   ];
@@ -57,11 +61,11 @@ const plugins = () => {
         cache: true,
         imageminOptions: {
           plugins: [
-            ["gifsicle", { interlaced: true }],
-            ["jpegtran", { progressive: true }],
-            ["optipng", { optimizationLevel: 5 }],
+            ['gifsicle', { interlaced: true }],
+            ['jpegtran', { progressive: true }],
+            ['optipng', { optimizationLevel: 5 }],
             [
-              "svgo",
+              'svgo',
               {
                 plugins: [
                   {
@@ -73,7 +77,7 @@ const plugins = () => {
           ]
         }
       })
-    )
+    );
   }
 
   return basePlugins;
